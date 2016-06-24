@@ -10,7 +10,7 @@ import {
   StyleSheet,
   Text,
   View,
-  Navigator
+  Navigator,
 } from 'react-native';
 
 import Main from './Main.js';
