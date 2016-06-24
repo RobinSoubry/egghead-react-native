@@ -3,15 +3,60 @@ import {
   StyleSheet,
   Text,
   View,
-  Navigator
+  Navigator,
+  TextInput,
+  TouchableHighlight,
+  ActivityIndicatorIOS
 } from 'react-native';
 
+import api from './api.js'
+
 class Main extends Component {
+  constructor(){
+    super();
+    this.state = {
+      username: '',
+      isLoading: false,
+      error: false
+    }
+  }
+
+  handleSubmit(){
+    // update indicatorIOS spinner
+    // fetch data from Github
+    // reroute to the next passing the Github information
+    this.setState({
+      isLoading: true
+    });
+    api.getBio(this.state.username)
+      .then((response) => {
+        if(response.message === 'Not Found'){
+          this.setState({
+            error: 'User not found',
+            isLoading: false
+          })
+        } else {
+          console.log(response)
+        }
+      })
+  }
 
   render() {
     return (
       <View style={styles.mainContainer}>
-        <Text> Testing the router </Text>
+        <Text style={styles.title}> Search for a GitHub User </Text>
+        <TextInput
+          style={styles.searchInput}
+          value={this.state.username}
+          onChangeText={(text) => this.setState({username: text})}
+        />
+        <TouchableHighlight
+          style={styles.button}
+          onPress={this.handleSubmit.bind(this)}
+          underlayColor='white'>
+            <Text style={styles.buttonText}> SEARCH </Text>
+        </TouchableHighlight>
+
       </View>
     )
   }
@@ -20,14 +65,14 @@ class Main extends Component {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    padding: 38,
+    padding: 30,
     marginTop: 65,
     flexDirection: 'column',
     justifyContent: 'center',
     backgroundColor: '#48BBEC',
   },
   title: {
-    marginBottom:20,
+    marginBottom: 20,
     fontSize: 25,
     textAlign: 'center',
     color: '#fff',
@@ -35,7 +80,7 @@ const styles = StyleSheet.create({
   searchInput: {
     height: 50,
     padding: 4,
-    marginRight:5,
+    marginRight: 5,
     fontSize: 23,
     borderWidth: 1,
     borderColor: 'white',
@@ -45,7 +90,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     color: '#111',
-    alignItems: 'center',
+    alignSelf: 'center',
   },
   button: {
     height: 45,
@@ -57,8 +102,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginTop: 10,
     alignSelf: 'stretch',
-    justifyContent: 'center'
-
+    justifyContent: 'center',
   },
 });
 
