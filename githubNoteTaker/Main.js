@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import api from './api.js'
+import Dashboard from './Dashboard.js'
 
 class Main extends Component {
   constructor(){
@@ -37,6 +38,16 @@ class Main extends Component {
           })
         } else {
           console.log(response)
+          this.props.navigator.push({
+            title: 'Dashboard' || "Select an Option",
+            // component: Dashboard,
+            passProps: {userInfo: response}
+          });
+          this.setState({
+            isLoading: false,
+            error: false,
+            username: '',
+          })
         }
       })
   }

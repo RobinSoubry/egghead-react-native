@@ -10,6 +10,7 @@ class Dashboard extends Component {
     return(
       <View style={styles.container}>
         <Text> This is the dashboard </Text>
+        <Text> {this.props.userInfo.name} </Text>
       </View>
     )
   }
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
   image: {
     height: 350,
   },
-  buttonText{
+  buttonText: {
     fontSize: 24,
     color: 'white',
     alignSelf: 'center',

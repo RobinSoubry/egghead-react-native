@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 
 import Main from './Main.js';
+import Dashboard from './Dashboard.js';
 
 var NavigationBarRouteMapper = {
   LeftButton: function( route, navigator, index, navState ){
@@ -38,6 +39,8 @@ class githubNoteTaker extends Component {
   renderScene(route, navigator){
     if(route.title === 'Github Notetaker'){
       return <Main navigator={navigator} />
+    } else if (route.title === 'Dashboard') {
+      return <Dashboard navigator={navigator} {...route.passProps} />
     }
   }
 
