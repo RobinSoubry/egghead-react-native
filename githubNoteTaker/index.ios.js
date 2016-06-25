@@ -15,6 +15,9 @@ import {
 
 import Main from './Main.js';
 import Dashboard from './Dashboard.js';
+import Profile from './Profile.js';
+import Badge from './Badge.js';
+
 
 var NavigationBarRouteMapper = {
   LeftButton: function( route, navigator, index, navState ){
@@ -41,6 +44,8 @@ class githubNoteTaker extends Component {
       return <Main navigator={navigator} />
     } else if (route.title === 'Dashboard') {
       return <Dashboard navigator={navigator} {...route.passProps} />
+    } else if (route.title === 'Profile Page') {
+      return <Profile navigator={navigator} {...route.passProps} />
     }
   }
 

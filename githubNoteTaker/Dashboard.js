@@ -4,8 +4,11 @@ import {
   Text,
   View,
   Image,
+  Navigator,
   TouchableHighlight,
 } from 'react-native';
+
+import Profile from './Profile';
 
 class Dashboard extends Component {
 
@@ -28,8 +31,13 @@ class Dashboard extends Component {
   }
 
   goToProfile(){
-    console.log('Going to profile')
-  }
+    console.log(this.props.userInfo)
+    this.props.navigator.push({
+      component: Profile,
+      title: 'Profile Page',
+      passProps: {userInfo: this.props.userInfo}
+    })  }
+
   goToRepos(){
     console.log('Going to repos')
   }

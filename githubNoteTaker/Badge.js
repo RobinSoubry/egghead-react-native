@@ -4,6 +4,7 @@ import {
   Text,
   View,
   Image,
+  Navigator,
 } from 'react-native';
 
 class Badge extends Component {
@@ -19,9 +20,9 @@ class Badge extends Component {
 };
 
 // proptypes will check the available objects in userInfo. If something is not available, it will throw an error in the console.
-Badge.propTypes{
-  userInfo: React.propTypes.object.isRequired
-};
+// Badge.propTypes = {
+//   userInfo: React.propTypes.object.isRequired
+// };
 
 
 const styles = StyleSheet.create({
