@@ -37,6 +37,7 @@ class Profile extends Component {
       <ScrollView style={styles.container}>
         <Badge userInfo={this.props.userInfo}/>
         {list}
+                {list}
       </ScrollView>
     )
   }
@@ -48,7 +49,7 @@ class Profile extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    marginTop: 50,
   },
   buttonText: {
     fontSize: 18,
