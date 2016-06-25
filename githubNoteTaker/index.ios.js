@@ -42,7 +42,7 @@ var NavigationBarRouteMapper = {
                               </TouchableHighlight> )
   },
   Title(route, navigator, index, navState) {
-    return <Text style={ styles.title }>MY APP TITLE</Text>
+    return <Text style={ styles.title }>Pioneer</Text>
   }
 };
 
@@ -71,17 +71,16 @@ class githubNoteTaker extends Component {
       ///>
 
       <Navigator
-    style={{flex:1}}
-    initialRoute={{title: 'Github Notetaker'}}
-    renderScene={ this.renderScene.bind(this) }
-    navigationBar={
-       <Navigator.NavigationBar
-         style={ styles.nav }
-         routeMapper={NavigationBarRouteMapper} />}
-/>
-
-
-
+        style={{flex:1}}
+        initialRoute={{title: 'Github Notetaker'}}
+        renderScene={ this.renderScene.bind(this) }
+        navigationBar={
+          <Navigator.NavigationBar
+            style={ styles.nav }
+            routeMapper={NavigationBarRouteMapper}
+          />
+        }
+      />
     );
   }
 }
