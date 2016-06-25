@@ -3,6 +3,8 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
+  TouchableHighlight,
 } from 'react-native';
 
 class Dashboard extends Component {
@@ -11,6 +13,7 @@ class Dashboard extends Component {
       <View style={styles.container}>
         <Text> This is the dashboard </Text>
         <Text> {this.props.userInfo.name} </Text>
+        <Image source={{uri: this.props.userInfo.avatar_url}} style={styles.image}/>
       </View>
     )
   }
