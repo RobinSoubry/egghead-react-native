@@ -6,7 +6,7 @@ import {
   Navigator,
   TextInput,
   TouchableHighlight,
-  ActivityIndicatorIOS
+  ActivityIndicator
 } from 'react-native';
 
 import api from './api.js'
@@ -53,6 +53,21 @@ class Main extends Component {
   }
 
   render() {
+
+    var showErr = (
+      this.state.error ? <Text> {this.state.error} </Text> : <View></View>
+    )
+
+    var spinnerAnimation = <ActivityIndicator
+                              animating={this.state.isLoading}
+                              color='#111'
+                              size='large'>
+                            </ActivityIndicator>
+
+    var showSpinner = (
+      this.state.isLoading ? spinnerAnimation : console.log('Fail')
+    )
+
     return (
       <View style={styles.mainContainer}>
         <Text style={styles.title}> Search for a GitHub User </Text>
@@ -67,7 +82,8 @@ class Main extends Component {
           underlayColor='white'>
             <Text style={styles.buttonText}> SEARCH </Text>
         </TouchableHighlight>
-
+        {showSpinner}
+        {showErr}
       </View>
     )
   }
