@@ -21,7 +21,7 @@ class Profile extends Component {
     var topicArr = ['company', 'location', 'followers', 'following', 'email', 'bio', 'public_repos'];
     var list = topicArr.map((item, index) => {
       if(!userInfo[item]){
-        return <View key={index}/> //React uses the key to learn what changes in the list (must be unique!)
+        return <View key={index}/>
       } else {
         return (
           <View key={index}>
@@ -37,7 +37,7 @@ class Profile extends Component {
       <ScrollView style={styles.container}>
         <Badge userInfo={this.props.userInfo}/>
         {list}
-                {list}
+        {list}
       </ScrollView>
     )
   }
